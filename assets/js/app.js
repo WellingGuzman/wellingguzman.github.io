@@ -1,6 +1,7 @@
 ;(function($){
 
   var userName = 'WellingGuzman',
+      userURL = 'https://api.github.com/users/'+userName,
       repoURL = 'https://api.github.com/users/'+userName+'/repos?type=public',
       gistsURL = 'https://api.github.com/users/'+userName+'/gists?type=public';
 
@@ -16,6 +17,12 @@
 
     repos.append( item );
   }
+  
+  $.getJSON(userURL, function (data) {
+    var user = data;
+    if ( user )
+      $('#header h1').text(user.name);
+  });
 
   $.getJSON(repoURL, function (data) {
     var repos = data;
