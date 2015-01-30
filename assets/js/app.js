@@ -18,15 +18,12 @@
     repos.append( item );
   }
   
-  $.getJSON(userURL, function (data) {
-    var user = data;
+  $.getJSON(userURL, function (user) {
     if ( user )
       $('#header h1').text(user.name);
   });
 
-  $.getJSON(repoURL, function (data) {
-    var repos = data;
-
+  $.getJSON(repoURL, function (repos) {
     $('#repos-count').text(repos.length);
 
     $.each(repos, function(index, repo){
@@ -35,8 +32,7 @@
 
   });
 
-  $.getJSON(gistsURL, function (data) {
-    var gists = data;
+  $.getJSON(gistsURL, function (gists) {
     if ( gists )
       $('#gists-count').text(gists.length);
   });
