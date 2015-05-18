@@ -10,8 +10,9 @@
 
     var item = '<li><a href="'+repo.html_url+'">';
         item+= '<span class="repo-name">' + repo.name + '</span>';
-        if ( repo.language )
+        if ( repo.language ) {
           item+= '<span class="repo-lang">' + repo.language + '</span>';
+        }
         item+= '<span class="repo-info">' + repo.description+'</span>';
         item+= '</a></ul>';
 
@@ -19,8 +20,9 @@
   }
   
   $.getJSON(userURL, function (user) {
-    if ( user )
+    if ( user ) {
       $('#header h1').text(user.name);
+    }
   });
 
   $.getJSON(repoURL, function (repos) {
@@ -33,8 +35,9 @@
   });
 
   $.getJSON(gistsURL, function (gists) {
-    if ( gists )
+    if ( gists ) {
       $('#gists-count').text(gists.length);
+    }
   });
 
 })(jQuery);
